@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# dotenv (keep real secrets out of git)
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Next.js
+.next/
+out/
+
+# Vercel
+.vercel/
+
+# Chroma (local DB)
+.chroma/
+

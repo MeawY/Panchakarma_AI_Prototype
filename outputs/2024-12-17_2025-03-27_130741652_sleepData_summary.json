@@ -1,0 +1,18 @@
+{
+  "recordCount": 24,
+  "dateStart": "2025-02-27",
+  "dateEnd": "2025-03-26",
+  "avgSleepHours": 6.5785,
+  "avgTimeInBedHours": 7.173,
+  "avgSleepEfficiency": 0.9193041666666667,
+  "avgDeepPercent": 0.164125,
+  "avgLightPercent": 0.6843208333333334,
+  "avgRemPercent": 0.15155,
+  "avgOverallScore": 68.66666666666667,
+  "avgQualityScore": 71.375,
+  "avgDurationScore": 76.33333333333333,
+  "avgRecoveryScore": 68.25,
+  "generatedAt": "2026-01-21T02:52:59Z",
+  "sourceFile": "/Users/yoko/Desktop/DI-Connect-Wellness/2024-12-17_2025-03-27_130741652_sleepData.json",
+  "outputCsv": "/Users/yoko/Desktop/Panchakarma_AI_Prototype/outputs/2024-12-17_2025-03-27_130741652_sleepData_sleep.csv"
+}
