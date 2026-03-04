@@ -52,8 +52,8 @@ function buildSleepSummary(records: SleepRecord[]) {
 
   return {
     recordCount: records.length,
-    dateStart: dates.length ? Math.min(...dates) : null,
-    dateEnd: dates.length ? Math.max(...dates) : null,
+    dateStart: dates.length ? dates.reduce((a, b) => (a <= b ? a : b)) : null,
+    dateEnd: dates.length ? dates.reduce((a, b) => (a >= b ? a : b)) : null,
     avgSleepHours: sleepSecondsList.length ? mean(sleepSecondsList.map((s) => s / 3600)) : 0,
     avgTimeInBedHours: timeInBedList.length ? mean(timeInBedList.map((t) => t / 3600)) : 0,
     avgSleepEfficiency: mean(efficiencies),
