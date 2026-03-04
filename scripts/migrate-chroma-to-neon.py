@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 ChromaDB の panchakarma_qa_openai コレクションを Neon (pgvector) に移行します。
-事前に next-app/schema.sql を Neon で実行し、.env.local に DATABASE_URL を設定してください。
+事前に schema.sql を Neon で実行し、.env.local に DATABASE_URL を設定してください。
 
 使い方（プロジェクトルートで）:
-  cd next-app && python scripts/migrate-chroma-to-neon.py
+  python scripts/migrate-chroma-to-neon.py
 
 または Chroma の .chroma パスを環境変数で指定:
   CHROMA_PATH=/path/to/.chroma python scripts/migrate-chroma-to-neon.py
@@ -26,6 +26,7 @@ except ImportError:
     raise
 
 def load_dotenv_local():
+    # プロジェクトルートの .env.local
     env_path = Path(__file__).resolve().parent.parent / ".env.local"
     if not env_path.exists():
         return
@@ -47,14 +48,13 @@ def main():
 
     chroma_path = os.environ.get("CHROMA_PATH")
     if not chroma_path:
-        chroma_path = str(Path(__file__).resolve().parent.parent.parent / ".chroma")
+        chroma_path = str(Path(__file__).resolve().parent.parent / ".chroma")
     if not Path(chroma_path).exists():
         print(f"Chroma パスが存在しません: {chroma_path}")
         return 1
 
     client = chromadb.PersistentClient(path=chroma_path)
     coll = client.get_or_create_collection("panchakarma_qa_openai")
-    # Chroma の get は ids を省略すると全件取れる場合があるが、API により limit がある
     data = coll.get(include=["documents", "metadatas", "embeddings"])
     ids = data.get("ids") or []
     documents = data.get("documents") or []

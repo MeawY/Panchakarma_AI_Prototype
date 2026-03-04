@@ -1,3 +1,14 @@
+# Next.js（Vercel デプロイ用）
+
+ルートに Next.js アプリがあります。**Root Directory の設定は不要**です。
+
+- ローカル: `npm install && npm run dev` → http://localhost:3000
+- 環境変数: `.env.local` に `DATABASE_URL`（Neon）、`OPENAI_API_KEY` を設定（Vercel では Dashboard の Environment Variables に設定）
+- DB 初期化: Neon の SQL Editor で `schema.sql` を実行
+- Chroma→Neon 移行: `python scripts/migrate-chroma-to-neon.py`
+
+---
+
 # 環境変数の設定
 
 1. 雛形をコピー
